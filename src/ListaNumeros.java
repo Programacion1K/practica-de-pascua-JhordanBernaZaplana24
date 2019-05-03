@@ -11,7 +11,8 @@ import java.util.Objects;
 import java.util.stream.Collectors;
 
 public class ListaNumeros implements Utilizable {
-    List<Integer> lista=new ArrayList<>();
+    List<Integer> lista = new ArrayList<>();
+
     @Override
     public String muestraTodos() {
         return lista.stream().map(Objects::toString).collect(Collectors.joining(", "));
@@ -20,8 +21,8 @@ public class ListaNumeros implements Utilizable {
     @Override
     public void leeDeFichero(File nombreFichero) {
         try {
-            List<String> listaLeida= Files.readAllLines(nombreFichero.toPath());
-            lista=listaLeida.stream().map(Integer::parseInt).collect(Collectors.toList());
+            List<String> listaLeida = Files.readAllLines(nombreFichero.toPath());
+            lista = listaLeida.stream().map(Integer::parseInt).collect(Collectors.toList());
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -38,7 +39,7 @@ public class ListaNumeros implements Utilizable {
 
     @Override
     public void pideYAnyade() {
-        lista.add(Integer.parseInt(JOptionPane.showInputDialog(null,"¿Número a añadir?")));
+        lista.add(Integer.parseInt(JOptionPane.showInputDialog(null, "¿Número a añadir?")));
 
 
     }

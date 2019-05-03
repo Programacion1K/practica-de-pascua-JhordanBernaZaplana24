@@ -9,8 +9,9 @@ import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
-public class ListaPalabras implements Utilizable{
-    List<String> lista=new ArrayList<>();
+public class ListaPalabras implements Utilizable {
+    List<String> lista = new ArrayList<>();
+
     @Override
     public String muestraTodos() {
         return lista.stream().map(Objects::toString).collect(Collectors.joining("\n"));
@@ -19,7 +20,7 @@ public class ListaPalabras implements Utilizable{
     @Override
     public void leeDeFichero(File nombreFichero) {
         try {
-            lista= Files.readAllLines(nombreFichero.toPath());
+            lista = Files.readAllLines(nombreFichero.toPath());
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -36,7 +37,7 @@ public class ListaPalabras implements Utilizable{
 
     @Override
     public void pideYAnyade() {
-        lista.add(JOptionPane.showInputDialog(null,"¿Palabra a añadir?"));
+        lista.add(JOptionPane.showInputDialog(null, "¿Palabra a añadir?"));
 
 
     }
